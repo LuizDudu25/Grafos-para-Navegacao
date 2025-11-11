@@ -292,3 +292,58 @@ Com o exemplo de mapa de `mapa.txt` temos a seguinte visualização:
 
 Essa visualização ajuda a confirmar que a árvore cobre todas as regiões navegáveis do mapa, conectando os vértices visíveis sem redundância.
 
+---
+
+### 4. Identificação do Vértice Mais Próximo (`verticeMaisProximo()`)
+
+Com a árvore geradora mínima construída, o próximo passo é ligar o robô ao grafo,  
+encontrando o vértice mais próximo de sua posição inicial (`q_start`) e final (`q_goal`).
+
+Essa função é fundamental para permitir que o algoritmo de busca (etapa seguinte) saiba onde começar e onde terminar dentro da estrutura da árvore.
+
+---
+
+### Lógica geral
+
+1. A função percorre todos os vértices da árvore;  
+2. Calcula a distância euclidiana entre cada vértice e o ponto dado;  
+3. Retorna o vértice cuja distância é a menor encontrada.
+
+Esse processo é feito tanto para o ponto inicial (`q_start`) quanto para o ponto final (`q_goal`).
+
+---
+
+### Implementação
+
+O projeto implementa a função `verticeMaisProximo()` no módulo `arvore.py`
+
+```python
+def verticeMaisProximo(ponto, arvore):
+    # validar ponto
+    if not (isinstance(ponto, (tuple, list)) and len(ponto) == 2):
+        raise ValueError("Ponto deve ser tupla/lista de 2 floats")
+
+    # extrair vértices
+    if isinstance(arvore, dict):
+        vertices = list(arvore.keys())
+    else:
+        vertices = set()
+        for u, v, _ in arvore:
+            vertices.add(u)
+            vertices.add(v)
+        vertices = list(vertices)
+
+    if len(vertices) == 0:
+        raise ValueError("Árvore está vazia — nenhum vértice para examinar")
+
+    # calcular mais próximo
+    menor_dist = float('inf')
+    mais_prox = None
+    for v in vertices:
+        d = math.dist(ponto, v)
+        if d < menor_dist:
+            menor_dist = d
+            mais_prox = v
+
+    return mais_prox
+```
