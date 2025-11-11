@@ -1,8 +1,4 @@
 import math
-import matplotlib
-matplotlib.use('TkAgg')
-import matplotlib.pyplot as plt
-from shapely.geometry import Polygon
 
 def construir_adjacencia(arvore):
     adj = {}
@@ -88,3 +84,4 @@ def estatisticas_caminho(caminho, distancia):
         'distancia_euclidiana_direta': dist_direta,
         'razao_caminho': razao
     }
+
