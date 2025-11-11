@@ -145,7 +145,7 @@ grafo[v1] = [(v2, distancia), (v3, distancia), ...]
 
 ### Implementação
 
-A função `grafo_visibilidade()` no módulo `grafo.py` recebe os pontos inicial e final e a lista de obstáculos e retorna o grafo de visibilidade completo:
+A função `grafo_visibilidade()` recebe os pontos inicial e final e a lista de obstáculos e retorna o grafo de visibilidade completo:
 
 ```python
 def grafo_visibilidade(q_start, q_goal, obstaculos, max_distancia=None, debug=False):
