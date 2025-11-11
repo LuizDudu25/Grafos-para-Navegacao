@@ -347,3 +347,74 @@ def verticeMaisProximo(ponto, arvore):
 
     return mais_prox
 ```
+
+---
+
+### 5. Algoritmo de Busca na Árvore (`caminho.py`)
+
+Com os vértices inicial e final identificados, o sistema agora precisa encontrar o caminho que conecta esses dois pontos na árvore geradora mínima.
+
+---
+
+### Lógica geral
+
+1. O algoritmo começa no vértice inicial (`v_inicio`);  
+2. Explora recursivamente cada vizinho até encontrar o vértice final (`v_final`);  
+3. Mantém um registro do caminho percorrido para retornar a sequência completa de vértices.
+
+---
+
+### Implementação
+
+Por se tratar de uma árvore, não há necessidade de heurísticas ou filas de prioridade, basta uma busca recursiva ou iterativa. Como a MST é uma estrutura sem ciclos e com caminho único entre quaisquer dois vértices, um algoritmo simples de busca em profundidade (DFS) é suficiente para encontrar o trajeto entre os nós desejados.
+
+```python
+def buscarCaminho(v_inicio, v_fim, arvore):
+    # Validações
+    if not arvore:
+        print("Árvore vazia fornecida")
+        return None, 0
+    
+    # Construir adjacência com pesos
+    adj = construir_adjacencia(arvore)
+    
+    # Verificar se os vértices existem
+    if v_inicio not in adj:
+        print(f"Vértice inicial {v_inicio} não está na árvore")
+        return None, 0
+    if v_fim not in adj:
+        print(f"Vértice final {v_fim} não está na árvore")
+        return None, 0
+    
+    # DFS com backtracking para encontrar o caminho
+    visitados = set()
+    caminho = []
+    distancia_total = [0]  # Lista para poder modificar em função aninhada
+    
+    def dfs(atual, dist_acumulada):
+        """Busca em profundidade recursiva."""
+        visitados.add(atual)
+        caminho.append(atual)
+        
+        # Se encontrou o destino
+        if atual == v_fim:
+            distancia_total[0] = dist_acumulada
+            return True
+        
+        # Explorar vizinhos
+        for (viz, peso) in adj.get(atual, []):
+            if viz not in visitados:
+                if dfs(viz, dist_acumulada + peso):
+                    return True
+        
+        # Backtracking: remover vértice se não levou ao destino
+        caminho.pop()
+        return False
+    
+    # Executar busca
+    if dfs(v_inicio, 0):
+        return caminho, distancia_total[0]
+    else:
+        return None, 0
+```
+
