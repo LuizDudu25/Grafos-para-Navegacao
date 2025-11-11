@@ -229,7 +229,7 @@ A função `plotar_grafo()` (no módulo `plots.py`) permite visualizar o grafo s
 Com o exemplo de mapa de `mapa.txt` temos a seguinte visualização:
 
 <p align="center">
-  <img src="imagens/Grafo_visibilidade.png" alt="Grafo de Visibilidade" width="600"/>
+  <img src="Prints/Grafo_visibilidade.png" alt="Grafo de Visibilidade" width="600"/>
 </p>
 
 Essa visualização é fundamental para validar o comportamento do grafo de visibilidade antes das etapas seguintes (geração da árvore e busca de caminho).
