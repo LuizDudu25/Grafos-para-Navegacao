@@ -1,5 +1,3 @@
-import os
-
 def ler_mapa(arquivo):
     try:
         with open(arquivo, 'r') as f:
