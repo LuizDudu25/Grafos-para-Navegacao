@@ -1,9 +1,5 @@
 import heapq
 import math
-import matplotlib
-matplotlib.use('TkAgg')
-import matplotlib.pyplot as plt
-from shapely.geometry import Polygon
 
 def prim(grafo, inicio):
     visitado = set()
@@ -104,3 +100,4 @@ def verticeMaisProximo(ponto, arvore):
             mais_prox = v
 
     return mais_prox
+
