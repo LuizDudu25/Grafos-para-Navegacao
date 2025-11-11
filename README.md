@@ -110,7 +110,9 @@ def ler_mapa(arquivo):
         print(f"Erro inesperado: {e}")
         raise
 ```
-Explicação
+---
+
+## Explicação
 
 - q_start e q_goal são tuplas representando as coordenadas inicial e final do robô.
 - Cada obstáculo é armazenado como uma lista de vértices (x, y), o que permite usar bibliotecas como shapely para verificar interseções.
