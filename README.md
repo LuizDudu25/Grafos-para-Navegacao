@@ -418,6 +418,8 @@ def buscarCaminho(v_inicio, v_fim, arvore):
         return None, 0
 ```
 
+---
+
 ### 6. Plotagem do Caminho Final (`plots.py`)
 
 A etapa final do projeto é a visualização do caminho encontrado sobre o mapa. Essa parte é fundamental para validar visualmente os resultados de todas as etapas anteriores: do grafo de visibilidade à árvore geradora mínima, até o trajeto final do robô.
@@ -490,7 +492,28 @@ def plotar_caminho(caminho, obstaculos, q_start, q_goal, grafo=None):
 ### Visualização
 
 <p align="center">
-  <img src="imagens/Caminho_final.png" alt="Caminho Final" width="600"/>
+  <img src="Prints/Caminho_final.png" alt="Caminho Final" width="600"/>
 </p>
 
 A figura acima mostra o resultado final do processo: o caminho encontrado pelo robô a partir do grafo de visibilidade e da árvore geradora mínima, contornando os obstáculos até alcançar o ponto de destino.
+
+---
+
+## Conclusão e Aprendizados
+
+Este projeto integrou, de forma prática e visual, diversos conceitos fundamentais de teoria dos grafos, geometria computacional e planejamento de movimento.  
+Ao longo das seis etapas de desenvolvimento, foi possível construir um sistema completo de navegação autônoma em ambiente bidimensional, com detecção de obstáculos, geração de caminhos e visualização do resultado. O projeto possibilitou uma série de aprendizados como:
+
+- Aplicação de grafos de visibilidade para representar regiões navegáveis no plano;  
+- Uso de estruturas de árvore (MST) para reduzir o grafo e manter conectividade mínima;  
+- Implementação de busca recursiva para encontrar trajetos entre vértices;  
+- Utilização de bibliotecas como Shapely e Matplotlib para manipulação geométrica e exibição gráfica;  
+- Importância de integrar algoritmos clássicos de grafos com ferramentas de visualização, tornando os resultados mais intuitivos e verificáveis.
+
+A metodologia apresentada serve de base para problemas reais de:
+
+- Navegação de robôs autônomos em ambientes conhecidos;  
+- Planejamento de rotas em mapas bidimensionais;  
+- Simulação de trajetórias em sistemas de visão computacional e jogos.
+
+Além de reforçar o entendimento dos algoritmos estudados, o projeto proporciona uma visão mais clara de como a teoria se transforma em prática dentro da engenharia de software e da robótica.
