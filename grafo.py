@@ -1,9 +1,5 @@
 import math
 import itertools
-import matplotlib
-matplotlib.use('TkAgg')
-import matplotlib.pyplot as plt
-from shapely.geometry import Polygon
 
 from geometria import linha_livre
 
@@ -49,5 +45,6 @@ def grafo_visibilidade(q_start, q_goal, obstaculos, max_distancia=None, debug=Fa
         print("Top graus (vértice: grau):", degs[:6])
     
     return G
+
 
 
