@@ -122,8 +122,8 @@ def ler_mapa(arquivo):
 
 ### 2. Criação do Grafo de Visibilidade (`grafo.py`)
 
-Após a leitura do mapa, a próxima etapa é a **geração do grafo de visibilidade**.  
-Essa fase consiste em identificar **quais vértices do ambiente podem “se ver”** sem que uma linha entre eles atravesse nenhum obstáculo.  
+Após a leitura do mapa, a próxima etapa é a geração do grafo de visibilidade.  
+Essa fase consiste em identificar quais vértices do ambiente podem “se ver” sem que uma linha entre eles atravesse nenhum obstáculo.  
 O resultado é um grafo onde cada vértice representa um ponto do mapa e cada aresta representa uma conexão direta possível.
 
 ---
@@ -131,12 +131,12 @@ O resultado é um grafo onde cada vértice representa um ponto do mapa e cada ar
 ### Lógica geral
 
 1. Cada vértice de todos os obstáculos é adicionado a uma lista de pontos.  
-2. Para cada par de vértices distintos `(v1, v2)`, o algoritmo testa se o **segmento entre eles é visível**, ou seja:  
+2. Para cada par de vértices distintos `(v1, v2)`, o algoritmo testa se o segmento entre eles é visível, ou seja:  
    - Não cruza nenhum obstáculo;  
    - Está completamente dentro da área livre.  
-3. Se a linha for visível, adiciona-se uma **aresta ponderada** entre `v1` e `v2`, cujo peso é a distância euclidiana entre os pontos.
+3. Se a linha for visível, adiciona-se uma aresta ponderada entre `v1` e `v2`, cujo peso é a distância euclidiana entre os pontos.
 
-O grafo resultante é representado como um **dicionário de adjacência**:  
+O grafo resultante é representado como um dicionário de adjacência:  
 ```python
 grafo[v1] = [(v2, distancia), (v3, distancia), ...]
 ```
